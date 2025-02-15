@@ -7,6 +7,7 @@ import {
 	Text,
 	FlatList,
 	ActivityIndicator,
+	StatusBar,
 } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
@@ -91,7 +92,11 @@ const HomeScreen: React.FC = () => {
 		<SafeAreaView
 			style={[
 				styles.container,
-				{ backgroundColor: theme.colors.background },
+				{
+					backgroundColor: theme.colors.background,
+					paddingTop:
+						Platform.OS === "android" ? StatusBar.currentHeight : 0,
+				},
 			]}
 		>
 			<Header />
