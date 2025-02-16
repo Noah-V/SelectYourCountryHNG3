@@ -29,7 +29,11 @@ const CountryDetails = () => {
 				title={country?.name.common}
 				onBack={() => router.back()}
 			/>
-			<CountryFlag flag={country?.flags.png || ""} />
+			<CountryFlag
+				flag={country?.flags.png || ""}
+				coatOfArms={country?.coatOfArms || undefined}
+				maps={country?.maps || undefined}
+			/>
 			<CountryInformation country={country} />
 		</SafeAreaView>
 	);

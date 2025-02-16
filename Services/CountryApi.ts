@@ -29,7 +29,8 @@ export interface CountryData {
 	landlocked: boolean;
 	area: number;
 	denonyms: Record<string, { f: string; m: string }>;
-	maps: {};
+	// maps: {};
+	maps: Record<string, string> | undefined;
 	car: {
 		signs: string[];
 		side: string;

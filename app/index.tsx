@@ -69,6 +69,22 @@ const HomeScreen: React.FC = () => {
 		}
 	};
 
+	let timeout: NodeJS.Timeout;
+
+	const handleSearchQueryChanges = (text: string) => {
+		setSearchQuery(text);
+		setLoading(true);
+
+		if (text === "") {
+			clearSearchBar();
+		} else {
+			clearTimeout(timeout);
+			timeout = setTimeout(() => {
+				searchForCountry();
+			}, 100);
+		}
+	};
+
 	const clearSearchBar = () => {
 		setSearchQuery("");
 		loadCountries();
@@ -102,8 +118,8 @@ const HomeScreen: React.FC = () => {
 			<Header />
 			<SeachBar
 				value={searchQuery}
-				onChangeText={setSearchQuery}
-				onSubmit={searchForCountry}
+				onChangeText={handleSearchQueryChanges}
+				// onSubmit={searchForCountry}
 				onClear={clearSearchBar}
 			/>
 			<HeaderOptions

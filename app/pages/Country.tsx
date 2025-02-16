@@ -33,8 +33,9 @@ const Country: React.FC<CountryProps> = ({ country }) => {
 				>
 					{country.name.common}
 				</Text>
-				<Text>
-					{country.capital?.[0] || "Capital Data not available"}
+				<Text style={[{ color: theme.colors.text }]}>
+					{country.capital?.[0] ||
+						"We do not have this country's capital at this time"}
 				</Text>
 			</View>
 		</TouchableOpacity>
